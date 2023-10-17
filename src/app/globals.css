@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-red-700 text-black;
+  }
+  h1 {
+    /* !important is required because it is
+        inherited from the browser's default        */
+    @apply text-2xl italic text-red-900 !important;
+  }
+  h2 {
+    @apply text-xl italic text-red-900 !important;
+  }
+}
+
+@layer images {
+  .food-img {
+    @apply md:h-[40vh] h-[25vh] w-full relative overflow-hidden bg-cover bg-center;
+  }
+}
+
+@layer containers {
+  .header-container {
+    @apply min-h-[10vh] px-10 fixed top-0 w-full z-10;
+    @apply border-b-2 rounded-b-md border-gray-200;
+    @apply flex justify-between items-center;
+    @apply bg-red-50/50 font-semibold;
+    @apply backdrop-filter backdrop-blur-sm !important;
+  }
+}
+@layer {
+  .cart-button {
+    @apply bg-red-500 hover:bg-red-600 active:bg-red-700 text-white font-bold !important;
+    @apply py-2 px-4 rounded transition hover:scale-105 duration-300 relative !important;
+  }
+  .cart-button__count {
+    @apply absolute -top-2 -right-3 bg-red-600 text-white rounded-full h-6 w-6 flex justify-center items-center text-xs;
+  }
+}
