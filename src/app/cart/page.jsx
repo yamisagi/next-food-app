@@ -8,7 +8,8 @@ import Link from 'next/link';
 
 const Cart = () => {
   const router = useRouter();
-  const { order, total, resetOrder } = useContext(OrderContext);
+  const { order, total, resetOrder, removeOrder, decrementOrder } =
+    useContext(OrderContext);
 
   return (
     <div className='flex flex-col min-h-screen justify-center items-center w-full'>
@@ -28,13 +29,33 @@ const Cart = () => {
             return (
               <li
                 key={item.id}
-                className='flex justify-between items-center mb-2'
+                className='flex justify-between px-5 items-center mb-2'
               >
                 <div className='flex items-center'>
                   <span>{item.name}</span>
                 </div>
-                <div>
-                  <span>{item.quantity}</span>
+                <div className='flex items-center justify-between w-1/3'>
+                  <div>
+                    <span>{item.quantity}</span>
+                  </div>
+                  <div>
+                    <span >x</span>
+                    <span className='font-bold mx-2'>{item.price}$</span>
+                  </div>
+                  {item.quantity > 1 && (
+                    <Button
+                      title='-'
+                      className='w-20'
+                      onClick={() => decrementOrder(item.id)}
+                    />
+                  )}
+                  {item.quantity === 1 && (
+                    <Button
+                      title='X'
+                      className='w-20'
+                      onClick={() => removeOrder(item.id)}
+                    />
+                  )}
                 </div>
               </li>
             );
@@ -46,15 +67,15 @@ const Cart = () => {
             <span>${total.toFixed(2)}</span>
           </div>
         )}
-        <div className='flex justify-center items-center w-full mt-4'>
+        <div className='flex justify-evenly items-center w-full mt-4'>
           <Button
             title='Order'
-            className='w-full mt-4'
             onClick={() => {
               router.push('/');
               resetOrder();
             }}
           />
+          <Button title='Cancel' onClick={() => router.push('/')} />
         </div>
       </div>
     </div>

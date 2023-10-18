@@ -82,6 +82,8 @@ In this project, I'm trying to build a simple food order app using Next.js and T
 - [x] Create Order Context
 - [x] Implement Order Context to App
 - [x] Fix Modal & Order Bugs
+- [x] Create Remove & Decrement Functionality to Context
+
 
 
 <p align="center">(Still working on it...)</p>
