@@ -83,7 +83,8 @@ In this project, I'm trying to build a simple food order app using Next.js and T
 - [x] Implement Order Context to App
 - [x] Fix Modal & Order Bugs
 - [x] Create Remove & Decrement Functionality to Context
-
+- [x] Improve Styles for Mobile
+- [x] Project Deploy to Vercel 🚀
 
 
 <p align="center">(Still working on it...)</p>

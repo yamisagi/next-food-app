@@ -37,7 +37,7 @@
   }
   .summary {
     @apply bg-cream shadow-lg shadow-black rounded-lg overflow-hidden !important;
-    @apply w-96 p-4 text-center absolute top-28 left-1/2 transform -translate-x-1/2 !important;
+    @apply w-80 p-4 mx-auto text-center md:absolute md:top-28 md:left-1/2 md:transform md:-translate-x-1/2 !important;
     @apply transition-all duration-300 hover:rotate-2 hover:cursor-pointer !important;
   }
   .summary-animate {
