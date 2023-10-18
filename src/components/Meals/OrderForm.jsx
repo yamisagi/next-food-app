@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
+import OrderContext from '@/context/orderContext';
 
-const OrderForm = ({ setModalIsOpen }) => {
+const OrderForm = ({ setModalIsOpen, meal }) => {
+  const { addOrder, order } = useContext(OrderContext);
+  console.log(order);
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    const amount = e.target.amount.value;
+    const order = {
+      id: meal.id,
+      name: meal.name,
+      price: meal.price,
+      quantity: Number(amount),
+    };
+    addOrder(order);
+    setModalIsOpen(false);
   };
   return (
     <div>
@@ -13,6 +26,7 @@ const OrderForm = ({ setModalIsOpen }) => {
           bg-cream/80 rounded-lg shadow-lg p-6 w-96 h-96'
         onSubmit={handleFormSubmit}
       >
+        <p className='text-2xl font-bold text-center mb-4'>{meal.name}</p>
         <Input
           input={{
             id: 'amount',
@@ -20,14 +34,13 @@ const OrderForm = ({ setModalIsOpen }) => {
             placeholder: 'How many?',
             label: 'Amount',
             min: '1',
+            defaultValue: '1',
           }}
         />
-        <Button
-          title='Add'
-          onClick={() => {
-            setModalIsOpen(false);
-          }}
-        />
+        <div className='flex justify-evenly items-center w-full mt-4'>
+          <Button title='Add' />
+          <Button title='Close' />
+        </div>
       </form>
     </div>
   );

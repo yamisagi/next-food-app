@@ -79,6 +79,9 @@ In this project, I'm trying to build a simple food order app using Next.js and T
 - [x] Add Static Data
 - [x] Add Card Component & Style
 - [x] Add Modal Component & Style
+- [x] Create Order Context
+- [x] Implement Order Context to App
+- [x] Fix Modal & Order Bugs
 
 
 <p align="center">(Still working on it...)</p>

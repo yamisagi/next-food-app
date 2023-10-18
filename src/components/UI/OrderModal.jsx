@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 
 const OrderModal = ({ isOpen, children, setIsOpen }) => {
+  const modalRootRef = useRef(null);
+
+  useEffect(() => {
+    if (document) {
+      modalRootRef.current = document.getElementById('modal');
+    }
+  }, []);
+
   return (
-    isOpen && (
+    isOpen &&
+    ReactDOM.createPortal(
       <div
         className='modal'
         aria-labelledby='modal-title'
@@ -13,8 +23,9 @@ const OrderModal = ({ isOpen, children, setIsOpen }) => {
           className='absolute inset-0 bg-black bg-opacity-50'
           onClick={() => setIsOpen(false)}
         />
-        <div className='relative  p-8'>{children}</div>
-      </div>
+        <div className='relative p-8'>{children}</div>
+      </div>,
+      modalRootRef.current
     )
   );
 };

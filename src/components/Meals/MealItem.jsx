@@ -1,9 +1,12 @@
 'use client';
-import React from 'react';
-import Card from '../UI/Card';
-import Button from '../UI/Button';
-
-const MealItem = ({ meal, setModalIsOpen }) => {
+import React, { useContext } from 'react';
+import Card from '@/components/UI/Card';
+import Button from '@/components/UI/Button';
+import OrderContext from '@/context/orderContext';
+import OrderModal from '../UI/OrderModal';
+import OrderForm from './OrderForm';
+const MealItem = ({ meal }) => {
+  const [modalIsOpen, setModalIsOpen] = React.useState(false);
   return (
     <Card key={meal.id}>
       <li key={meal.id} className='list-item'>
@@ -14,6 +17,9 @@ const MealItem = ({ meal, setModalIsOpen }) => {
           <Button title='Add to Cart' onClick={() => setModalIsOpen(true)} />
         </div>
       </li>
+      <OrderModal isOpen={modalIsOpen} setIsOpen={setModalIsOpen}>
+        <OrderForm setModalIsOpen={setModalIsOpen} meal={meal} />
+      </OrderModal>
     </Card>
   );
 };
