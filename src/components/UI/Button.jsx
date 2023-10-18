@@ -1,10 +1,10 @@
+'use client';
 import React from 'react';
 
-const Button = ({ title = 'Give me some name' }) => {
+const Button = ({ title, onClick }) => {
   return (
-    <button className='cart-button'>
+    <button className='button' onClick={() => onClick()}>
       {title}
-      <span className='cart-button__count'>5</span>
     </button>
   );
 };

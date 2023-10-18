@@ -78,6 +78,7 @@ In this project, I'm trying to build a simple food order app using Next.js and T
 - [x] Structure the App & Folder 
 - [x] Add Static Data
 - [x] Add Card Component & Style
+- [x] Add Modal Component & Style
 
 
 <p align="center">(Still working on it...)</p>
